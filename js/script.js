@@ -100,6 +100,11 @@ $(document).ready(function(){
     
       // Show the modal
       $('#exampleModal').modal('show');
+
+      // Hide the modal when X button or close button is clicked
+      $('.modal-header .close, .modal-footer .btn-secondary').on('click', function() {
+        $('#exampleModal').modal('hide');
+      });
     }
 
     function showLoadingModal() {
