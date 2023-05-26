@@ -2,8 +2,6 @@ $(document).ready(function(){
   let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
-    let modalContainer = $('#modal-container');
-    let dialogPromiseReject;
 
     function loadList() {
       showLoadingModal()
