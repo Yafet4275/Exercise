@@ -1,16 +1,7 @@
-<<<<<<< HEAD
-// Github
-let pokemonRepository = (function () {
-  let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
-  let modalContainer = document.querySelector('#modal-container')
-  let dialogPromiseReject;
-=======
 $(document).ready(function(){
   let pokemonRepository = (function () {
     let pokemonList = [];
-    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
->>>>>>> Bootstrap
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
     function loadList() {
       showLoadingModal()
