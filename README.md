@@ -17,6 +17,7 @@
  ### Key Features
     - Load data from an external API
     - View a list of items
+    - A message shows is loading
 
 ## Links
 
