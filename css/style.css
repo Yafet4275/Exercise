@@ -1,3 +1,5 @@
-.nav-brand-large {
-    font-size: 24px;
-  }
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}

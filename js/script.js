@@ -1,7 +1,7 @@
 $(document).ready(function(){
   let pokemonRepository = (function () {
     let pokemonList = [];
-    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
 
     function loadList() {
       showLoadingModal()
@@ -39,13 +39,10 @@ $(document).ready(function(){
 
     function addListItem(pokemon) {
       let pokemonListElement = $('.list-group');
-      let listItemElement = $('<li></li>').addClass('list-group-item');
       let button = $('<button></button>').attr('type', 'button').addClass('btn btn-primary myButton').text(pokemon.name);
 
-      listItemElement.append(button);
-      pokemonListElement.append(listItemElement);
+      pokemonListElement.append(button);
 
-      // Event delegation for handling click event
       $('.list-group').on('click', '.myButton', function() {
         let pokemonName = $(this).text();
         let pokemon = pokemonRepository.getAll().find(function(item) {
@@ -66,7 +63,6 @@ $(document).ready(function(){
           return response.json();
         })
         .then(function (details) {
-          // Now we add the details to the item
           item.imageUrl = details.sprites.front_default;
           item.height = details.height;
           item.types = details.types;
@@ -88,7 +84,7 @@ $(document).ready(function(){
       let modalBody = $('.modal-body');
     
       modalTitle.text(item.name);
-      modalBody.empty(); // Clear the modal body
+      modalBody.empty(); 
     
       let heightElement = $('<p></p>').text('Height: ' + item.height);
       let imageElement = $('<img>').attr('src', item.imageUrl).attr('alt', item.name + ' image');
@@ -96,10 +92,8 @@ $(document).ready(function(){
       modalBody.append(heightElement);
       modalBody.append(imageElement);
     
-      // Show the modal
       $('#exampleModal').modal('show');
 
-      // Hide the modal when X button or close button is clicked
       $('.modal-header .close, .modal-footer .btn-secondary').on('click', function() {
         $('#exampleModal').modal('hide');
       });
